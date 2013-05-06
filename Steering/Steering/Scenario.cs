@@ -328,7 +328,7 @@ namespace Steering
             }
         }
 
-        public static void SetUpMultipleModelsWaypointDemo()
+        public static void SetUpMassEffectDemo()
         {
             Params.Load("avoidance.properties");
             List<Entity> children = XNAGame.Instance().Children;
@@ -367,7 +367,7 @@ namespace Steering
                 }
                 if (i == 6)
                 {
-                    models[i].pos = new Vector3(positons.X -150, positons.Y, positons.Z - 4000);
+                    models[i].pos = new Vector3(positons.X -200, positons.Y-1500, positons.Z - 4000);
                 }
                 children.Add(models[i]);
             }

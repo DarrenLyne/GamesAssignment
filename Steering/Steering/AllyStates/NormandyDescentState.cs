@@ -12,7 +12,7 @@ namespace Steering.AllyStates
         {
             var fighter = (AIFighter)Entity;
             fighter.SteeringBehaviours.turnOffAll();
-            fighter.targetPos = new Vector3(-50, 20, -4000);
+            fighter.targetPos = new Vector3(-50, -400, -4000);
             fighter.SteeringBehaviours.turnOn(SteeringBehaviours.behaviour_type.arrive);
             fighter.SteeringBehaviours.turnOn(SteeringBehaviours.behaviour_type.EnforceNonPenetrationConstraint);
         }

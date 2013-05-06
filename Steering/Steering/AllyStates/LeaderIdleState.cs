@@ -45,7 +45,7 @@ namespace Steering.AllyStates
                 var fighter = (AIFighter)entity;
                 if (fighter.ModelName == "ReaperBossFBX" || fighter.ModelName == "ReaperSovFBX")
                 {
-                    if ((fighter.pos - Entity.pos).Length() < 771.0f)//770
+                    if ((fighter.pos - Entity.pos).Length() < 770.0f)//770 too late
                     {
                         fighter.SwicthState(new NormandyHideState(Entity));
                         XNAGame.Instance().Leader = fighter;

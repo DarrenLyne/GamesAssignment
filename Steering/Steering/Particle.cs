@@ -7,10 +7,8 @@ namespace Steering
     class Particle:Sphere
     {
         public Vector3 StartPos;
-        Stopwatch watch = new Stopwatch();
         public Particle(): base(1.0f)
         {
-            watch.Start();
         }
         public override void Update(GameTime gameTime)
         {
@@ -20,14 +18,8 @@ namespace Steering
             velocity += gravity * timeDelta;
             pos += velocity * timeDelta;
 
-            if (Math.Abs(pos.Length() - StartPos.Length()) > 20)
+            if (Math.Abs(pos.Length() - StartPos.Length()) >120)
             {
-                Alive = false;
-            }
-
-            if (watch.ElapsedMilliseconds > 500)
-            {
-                watch.Stop();
                 Alive = false;
             }
         }

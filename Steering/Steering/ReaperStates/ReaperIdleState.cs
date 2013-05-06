@@ -21,7 +21,7 @@ namespace Steering.ReaperStates
             var leader = (AIFighter)XNAGame.Instance().Leader;
             float range = leader.pos.Length() - Entity.pos.Length();
 
-            if(range > -1100)
+            if(range > -1100)//1100 too late,1140too early
             {
                 var fighter = (AIFighter)Entity;
                 fighter.SwicthState(new ReaperPreperationState(fighter));

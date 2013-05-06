@@ -40,6 +40,22 @@ namespace Steering.ReaperStates
                 p.velocity *= (float)r.NextDouble() * 50.0f;
                 p.LoadContent();
                 XNAGame.Instance().Children.Add(p);
+
+                p = new Particle();
+                p.pos = Entity.pos;
+                p.pos.Y += 180;
+                p.pos.Z -= 180;
+                p.StartPos = Entity.pos;
+                p.StartPos.Y += 180;
+                p.StartPos.Z -= -180;
+                p.Color = new Vector3(204, 0, 0);
+                r = new Random();
+                p.velocity = new Vector3((float)r.NextDouble() - 0.5f, (float)r.NextDouble() - 0.5f, (float)r.NextDouble() - 0.5f);
+                p.velocity.Normalize();
+                p.velocity.Y = Math.Abs(p.velocity.Y);
+                p.velocity *= (float)r.NextDouble() * 50.0f;
+                p.LoadContent();
+                XNAGame.Instance().Children.Add(p);
                 _lastEmmitted = 0.0f;
             }
             _lastEmmitted += timeDelta;
@@ -49,11 +65,6 @@ namespace Steering.ReaperStates
                 var fighter = (AIFighter) Entity;
                 fighter.SwicthState(new ReaperAttackingState(Entity));
             }
-           // if(Entity.look.Z > -1.6)
-           // {
-            //    Matrix x = Matrix.CreateRotationX(-0.001f);
-            ////    Entity.look = Vector3.Transform(Entity.look, x);
-           // }
         }
     }
 

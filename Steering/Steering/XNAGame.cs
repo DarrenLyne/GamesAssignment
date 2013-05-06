@@ -110,7 +110,7 @@ namespace Steering
             int midY = GraphicsDeviceManager.DefaultBackBufferWidth / 2;
             Mouse.SetPosition(midX, midY);
             children.Add(camera);
-            Scenario.SetUpMultipleModelsWaypointDemo();
+            Scenario.SetUpMassEffectDemo();
             //space = new Space();
             //oldState = Keyboard.GetState();
             base.Initialize();

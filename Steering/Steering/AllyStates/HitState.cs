@@ -20,6 +20,7 @@ namespace Steering.AllyStates
         {
         }
         float _lastEmmitted = 1.0f;
+        float alive = 0.0f;
         public override void Update(GameTime gameTime)
         {
             var timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -28,8 +29,9 @@ namespace Steering.AllyStates
             {
                 var p = new Particle();
                 p.pos = Entity.pos;
-                p.pos.X -= 30;
+                p.pos.X -= 40;
                 p.StartPos = Entity.pos;
+                p.Color = new Vector3(204, 0, 0);
                 var r = new Random();
                 p.velocity = new Vector3((float)r.NextDouble() - 0.5f, (float)r.NextDouble() - 0.5f, (float)r.NextDouble() - 0.5f);
                 p.velocity.Normalize();
@@ -40,6 +42,11 @@ namespace Steering.AllyStates
                 _lastEmmitted = 0.0f;
             }
             _lastEmmitted += timeDelta;
+            alive += timeDelta;
+            if (alive > 1)
+            {
+                Entity.Alive = false;
+            }
 
         }
     }

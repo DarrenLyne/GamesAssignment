@@ -370,11 +370,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Untitled.fbx">
+    <Compile Include="Untitled.FBX">
       <Name>Untitled</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <ProcessorParameters_Scale>15</ProcessorParameters_Scale>
+      <ProcessorParameters_RotationY>15</ProcessorParameters_RotationY>
     </Compile>
   </ItemGroup>
   <ItemGroup>
