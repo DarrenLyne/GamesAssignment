@@ -4,7 +4,7 @@ namespace Steering
 {
     class Lazer:Entity
     {
-
+        public float speed = 3.6f;
         public override void LoadContent()
         {
         }
@@ -14,7 +14,6 @@ namespace Steering
 
         public override void Update(GameTime gameTime)
         {
-            const float speed = 3.5f;
             pos += look * speed;
 
             if (pos.Z < -3000)

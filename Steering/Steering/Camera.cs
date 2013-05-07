@@ -15,7 +15,7 @@ namespace Steering
 {
     public class Camera : Entity
     {
-        
+        public bool locked = true;
         public Matrix projection;
         public Matrix view;
         private KeyboardState keyboardState;
@@ -60,10 +60,12 @@ namespace Steering
             
             int deltaX = mouseX - midX;
             int deltaY = mouseY - midY;
-
-            yaw(-(float)deltaX / 100.0f);
-            pitch(-(float)deltaY / 100.0f);
-            Mouse.SetPosition(midX, midY);
+            if (!locked)
+            {
+                yaw(-(float)deltaX / 100.0f);
+                pitch(-(float)deltaY / 100.0f);
+                Mouse.SetPosition(midX, midY);
+            }
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
@@ -83,27 +85,37 @@ namespace Steering
 
             if (keyboardState.IsKeyDown(Keys.LeftShift))
             {
-                timeDelta *= 20.0f;
+                if (!locked)
+                    timeDelta *= 20.0f;
+            }
+
+            if (keyboardState.IsKeyDown(Keys.F2))
+            {
+                locked = !locked;
             }
 
             if (keyboardState.IsKeyDown(Keys.W))
             {
-                walk(timeDelta*40.0f);   
+                if(!locked)
+                    walk(timeDelta*40.0f);   
             }
 
             if (keyboardState.IsKeyDown(Keys.S))
             {
-                walk(-timeDelta);
+                if (!locked)
+                    walk(-timeDelta);
             }
 
             if (keyboardState.IsKeyDown(Keys.A))
             {
-                strafe(-timeDelta);
+                if (!locked)
+                    strafe(-timeDelta);
             }
 
             if (keyboardState.IsKeyDown(Keys.D))
             {
-                strafe(timeDelta);
+                if (!locked)
+                    strafe(timeDelta);
             }          
             view = Matrix.CreateLookAt(pos, pos + look, up);
             projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f), XNAGame.Instance().GraphicsDeviceManager.GraphicsDevice.Viewport.AspectRatio, 1.0f, 10000.0f);

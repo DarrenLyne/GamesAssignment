@@ -28,18 +28,6 @@ namespace Steering.ReaperStates
         {
             var fighter= (AIFighter)Entity;
 
-            foreach (var i in XNAGame.Instance().Children)
-            {
-                if (i.GetType() == typeof(AllieLazer))
-                {
-                    if ((i.pos - Entity.pos).Length() < 100)
-                    {
-                        fighter.SwicthState(new ReaperHitState(fighter));
-                        i.Alive = false;
-                    }
-
-                }
-            }
             var targetPos = Vector3.Zero;
             foreach (AIFighter entity in XNAGame.Instance().Children.Where(x => x.GetType() == typeof(AIFighter)))
             {
@@ -68,6 +56,7 @@ namespace Steering.ReaperStates
                 lazer.pos = Entity.pos;
                 lazer.pos.Y += 40;
                 lazer.look = Vector3.Normalize(targetPos);
+                lazer.speed = 3.7f;
                 XNAGame.Instance().Children.Add(lazer);
                 timeShot = 0.0f;
             }

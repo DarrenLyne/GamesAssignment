@@ -11,8 +11,8 @@ namespace Steering.Camera_States
 
         public override void Enter()
         {
-            XNAGame.Instance().Camera.pos = new Vector3(-350, 25, -1750);
-            XNAGame.Instance().Camera.look = new Vector3(1, 0, -0.8f);
+            XNAGame.Instance().Camera.pos = new Vector3(-360, 35, -1750);
+            XNAGame.Instance().Camera.look = new Vector3(1, 0, -0.9f);
         }
 
         public override void Exit()

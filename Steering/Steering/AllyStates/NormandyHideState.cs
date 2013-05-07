@@ -20,7 +20,7 @@ namespace Steering.AllyStates
         {
             float timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;
             timeShot += timeDelta;
-            if (timeShot >19f)
+            if (timeShot >18f)
             {
                 if(!XNAGame.Instance().followNormandy)
                 {

@@ -3856,8 +3856,8 @@ Objects:  {
             Property: "AccessMode", "enum", "",0
         }
         UseMipMap: 0
-        Filename: "Untitled/material1.jpg"
-        RelativeFilename: "C:\Users\Darren\Desktop\Earth\Untitled\material1.jpg"
+        Filename: "material1.jpg"
+        RelativeFilename: "material1.jpg"
     }
     Texture: "Texture::material1_texture", "" {
         Type: "TextureVideoClip"
@@ -3881,8 +3881,8 @@ Objects:  {
             Property: "UVSet", "KString", "", "default"
         }
         Media: "Video::material1_texture"
-        FileName: "Untitled/material1.jpg"
-        RelativeFilename: "..\..\..\Desktop\Earth\Untitled\material1.jpg"
+        FileName: "material1.jpg"
+        RelativeFilename: "material1.jpg"
         ModelUVTranslation: 0,0
         ModelUVScaling: 1,1
         Texture_Alpha_Source: "None"
