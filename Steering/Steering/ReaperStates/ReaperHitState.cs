@@ -24,7 +24,7 @@ namespace Steering.ReaperStates
         {
             var timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (_lastEmmitted > 0.01f)
+            if (_lastEmmitted > 0.01f)//create explosion particles
             {
                 var p = new Particle();
                 p.pos = Entity.pos;

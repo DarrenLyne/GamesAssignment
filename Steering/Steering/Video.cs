@@ -4,34 +4,26 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Steering
 {
-    /// <summary>
-    /// This is a game component that implements IUpdateable.
-    /// </summary>
     public class Video2 : Entity
     {
-        Video _video;
-        VideoPlayer _player;
+        Video video;
+        VideoPlayer player;
 
         public override void LoadContent()
         {
-            _video = XNAGame.Instance().Content.Load<Video>("video");
-            _player = new VideoPlayer(); 
+            video = XNAGame.Instance().Content.Load<Video>("video");
+            player = new VideoPlayer();
+            player.IsLooped = false;
         }
 
-        /// <summary>
-        /// Allows the game component to update itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-
-            _player.Play(_video);
+            player.Play(video);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            XNAGame.Instance().SpriteBatch.Draw(_player.GetTexture(), new Rectangle(0, 0, _video.Width, _video.Height), Color.CornflowerBlue);
-            //XNAGame.Instance().SpriteBatch.End(); 
+            XNAGame.Instance().SpriteBatch.Draw(player.GetTexture(), new Rectangle(0, 0, video.Width, video.Height), Color.CornflowerBlue);
         }
 
         public override void UnloadContent()

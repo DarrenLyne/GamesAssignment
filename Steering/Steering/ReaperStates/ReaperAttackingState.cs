@@ -13,10 +13,6 @@ namespace Steering.ReaperStates
         public override void Enter()
         {
             var fighter = (AIFighter)Entity;
-            fighter.SteeringBehaviours.turnOffAll();
-            //fighter.SteeringBehaviours.turnOn(SteeringBehaviours.behaviour_type.offset_pursuit);
-            //fighter.SteeringBehaviours.turnOn(SteeringBehaviours.behaviour_type.obstacle_avoidance);
-            //fighter.offset = new Vector3(0, 0, 5);
             fighter.Leader = XNAGame.Instance().Leader;
         }
 
@@ -32,7 +28,7 @@ namespace Steering.ReaperStates
             foreach (AIFighter entity in XNAGame.Instance().Children.Where(x => x.GetType() == typeof(AIFighter)))
             {
                 if (entity.ModelName == "cerberus" || entity.ModelName == "GethDread" ||
-                    entity.ModelName == "Everest Class Dreadnaught" || entity.ModelName == "AllianceFighter")
+                    entity.ModelName == "Everest Class Dreadnaught" || entity.ModelName == "AllianceFighter")// check each AI Fighter for allie ships
                 {
                     if (targetPos == Vector3.Zero)
                     {
@@ -41,13 +37,13 @@ namespace Steering.ReaperStates
                     else
                     {
                         if ((entity.pos - entity.pos).Length() < targetPos.Length())
-                        {
+                        {   //get closest target pos
                             targetPos = entity.pos - Entity.pos;
                         }
                     }
                 }
             }
-
+            
             float timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;
             timeShot += timeDelta;
             if (timeShot > 0.25f)
@@ -56,7 +52,7 @@ namespace Steering.ReaperStates
                 lazer.pos = Entity.pos;
                 lazer.pos.Y += 40;
                 lazer.look = Vector3.Normalize(targetPos);
-                lazer.speed = 3.7f;
+                lazer.speed = 4.0f;
                 XNAGame.Instance().Children.Add(lazer);
                 timeShot = 0.0f;
             }

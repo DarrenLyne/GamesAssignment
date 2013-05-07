@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 
 namespace Steering.AllyStates
 {
-    class HitState : State
+    class AllieHitState : State
     {
-        public HitState(Entity entity)
+        public AllieHitState(Entity entity)
             : base(entity)
         {
 
@@ -13,14 +13,15 @@ namespace Steering.AllyStates
 
         public override void Enter()
         {
-            //Entity.Alive = false;
         }
 
         public override void Exit()
         {
         }
+
         float _lastEmmitted = 1.0f;
         float alive = 0.0f;
+
         public override void Update(GameTime gameTime)
         {
             var timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;

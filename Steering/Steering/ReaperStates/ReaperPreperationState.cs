@@ -5,7 +5,7 @@ namespace Steering.ReaperStates
 {
     class ReaperPreperationState : State
     {
-        public ReaperPreperationState(Entity entity)
+        public ReaperPreperationState(Entity entity)// Prepares for attack by moving forward
             : base(entity)
         {
         }
@@ -19,14 +19,12 @@ namespace Steering.ReaperStates
 
         public override void Update(GameTime gameTime)
         {
-            if (Entity.pos.Z < -1875)
+            if (Entity.pos.Z < -1875)//move forward to a certain point
             {
-               // M//atrix x = Matrix.CreateRotationX(-0.001f);
-               // Entity.look = Vector3.Transform(Entity.look, x);
                 Entity.pos = new Vector3(Entity.pos.X, Entity.pos.Y, Entity.pos.Z+0.15f);
             }
 
-            foreach (var i in XNAGame.Instance().Children)
+            foreach (var i in XNAGame.Instance().Children)//check if reaper hit
             {
                 if (i.GetType() == typeof(AllieLazer))
                 {

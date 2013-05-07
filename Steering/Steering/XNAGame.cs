@@ -17,7 +17,7 @@ namespace Steering
         SpriteBatch spriteBatch;
         Fighter camFighter;
         private KeyboardState oldState;
-        public bool followNormandy;
+        public bool followNormandyOnly;// used so camera does not follow allie attack when showing Normandy Descent
         
 
         public Fighter CamFighter
@@ -177,55 +177,6 @@ namespace Steering
                 if (!oldState.IsKeyDown(Keys.F1))
                 {
                     useCamFighter = !useCamFighter;
-                }
-            }
-            if (newState.IsKeyDown(Keys.F2))
-            {
-                if (!oldState.IsKeyDown(Keys.F2))
-                {
-                    ClearWorld();
-                    Scenario.setUpArrive();
-                }
-            }
-            if (newState.IsKeyDown(Keys.F3))
-            {
-                if (!oldState.IsKeyDown(Keys.F3))
-                {
-                    ClearWorld();
-                    Scenario.setUpPursuit();
-                }
-            }
-            if (newState.IsKeyDown(Keys.F4))
-            {
-                if (!oldState.IsKeyDown(Keys.F4))
-                {
-                    ClearWorld();
-                    Scenario.setUpWander();
-                }
-            }
-            
-            if (newState.IsKeyDown(Keys.F5))
-            {
-                if (!oldState.IsKeyDown(Keys.F5))
-                {
-                    ClearWorld();
-                    Scenario.setUpStateMachineDemo();
-                }
-            }
-            if (newState.IsKeyDown(Keys.F6))
-            {
-                if (!oldState.IsKeyDown(Keys.F6))
-                {
-                    ClearWorld();
-                    Scenario.setUpBuckRogersDemo();
-                }
-            } 
-            if (newState.IsKeyDown(Keys.F7))
-            {
-                if (!oldState.IsKeyDown(Keys.F7))
-                {
-                    ClearWorld();
-                    Scenario.setUpFlockingDemo();
                 }
             }
             

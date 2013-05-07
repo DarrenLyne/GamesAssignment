@@ -18,44 +18,41 @@ namespace Steering.Camera_States
         {
         }
 
-        bool _done;
-        private bool _tester;
+        bool shownfullNormandy;
+        private bool shownAllies;
 
         public override void Update(GameTime gameTime)
         {
-            if (XNAGame.Instance().Leader.pos.Length() > new Vector3(-10, 20, -330).Length())
+            if (XNAGame.Instance().Leader.pos.Length() > new Vector3(-10, 20, -330).Length())//show allies until Normandy reaches certain point
             {
-                if (!_done)
+                if (!shownfullNormandy)
                 {
                     XNAGame.Instance().Camera.pos = new Vector3(120, 150, XNAGame.Instance().Leader.pos.Z);
                     XNAGame.Instance().Camera.look = new Vector3(0, 0, 1);
-                    _done = true;
+                    shownfullNormandy = true;
                 }
                 else
                 {
-                    if (XNAGame.Instance().Camera.pos.X > -190)
+                    if (XNAGame.Instance().Camera.pos.X > -190)//Show allies until completed
                     {
-                        if (!_tester)
+                        if (!shownAllies)
                         {
                             XNAGame.Instance().Camera.pos = new Vector3(XNAGame.Instance().Camera.pos.X - 0.2f, 120,
                                                                         XNAGame.Instance().Leader.pos.Z);
                         }
                         else
                         {
+                            //show allies and reapers
                             XNAGame.Instance().Camera.pos = new Vector3(-80, 150, XNAGame.Instance().Camera.pos.Z - 0.3f);
                         }
                     }
                     else
                     {
-                        if (!_tester)
+                        if (!shownAllies)
                         {
                             XNAGame.Instance().Camera.pos = new Vector3(-80, 150, XNAGame.Instance().Leader.pos.Z + 500);
                             XNAGame.Instance().Camera.look = new Vector3(0, 0, -1);
-                            _tester = true;
-                        }
-                        else
-                        {
-                            XNAGame.Instance().Camera.pos = new Vector3(-80, 150, XNAGame.Instance().Camera.pos.Z + 0.5f);
+                            shownAllies = true;
                         }
                     }
 

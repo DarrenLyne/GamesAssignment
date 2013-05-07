@@ -4,6 +4,7 @@ namespace Steering.AllyStates
 {
     class NormandyHideState : State
     {
+        //Normandy Hides While others attack
         float timeShot;
         public NormandyHideState(Entity entity) : base(entity) { }
         public override void Enter()
@@ -22,7 +23,7 @@ namespace Steering.AllyStates
             timeShot += timeDelta;
             if (timeShot >18f)
             {
-                if(!XNAGame.Instance().followNormandy)
+                if(!XNAGame.Instance().followNormandyOnly)
                 {
                     timeShot = 0.0f;
                     var fighter = (AIFighter)Entity;

@@ -34,7 +34,7 @@ namespace Steering.AllyStates
                 {
                     if ((i.pos - Entity.pos).Length() < 10)
                     {
-                        _fighter.SwicthState(new HitState(_fighter));
+                        _fighter.SwicthState(new AllieHitState(_fighter));
                     }
 
                 }

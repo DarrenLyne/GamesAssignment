@@ -1,8 +1,8 @@
 ﻿namespace Steering.AllyStates
 {
-    class AllyIdleState : State
+    class AllieIdleState : State
     {
-        public AllyIdleState(Entity entity)
+        public AllieIdleState(Entity entity)
             : base(entity)
         {
         }
@@ -25,7 +25,7 @@
             var leader = (AIFighter)XNAGame.Instance().Leader;
             if (leader.currentState.GetType() == typeof(NormandyHideState))
             {
-                fighter.SwicthState(new AllyAttackState(Entity));
+                fighter.SwicthState(new AllieAttackState(Entity));
             }
         }
     }

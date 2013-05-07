@@ -772,7 +772,7 @@ namespace Steering
             return true;
         }
 
-        private Vector3 EnforceNonPenetrationConstraint(Entity current)
+        private Vector3 EnforceNonPenetrationConstraint(Entity current)//adapted from Matt Bucklnds Book Programming Game AI By Example
         {
             //iterate through all entities checking for any overlap of bounding radii
             foreach (Fighter child in XNAGame.Instance().Children.Where(x=> x.GetType()==typeof(AIFighter)))

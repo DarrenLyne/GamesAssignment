@@ -4,6 +4,7 @@ namespace Steering.AllyStates
 {
     class NormandyDescentState: State
     {
+        //Normandy Descents at end
         public NormandyDescentState(Entity entity):base(entity)
         {
         }

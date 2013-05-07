@@ -16,7 +16,7 @@ namespace Steering.Camera_States
             XNAGame.Instance().Camera.pos = _cameraPos;
             XNAGame.Instance().Camera.pos.Z+= 150;
             XNAGame.Instance().Camera.look = new Vector3(0,0,-1);
-            XNAGame.Instance().followNormandy = true;
+            XNAGame.Instance().followNormandyOnly = true;
         }
 
         public override void Exit()

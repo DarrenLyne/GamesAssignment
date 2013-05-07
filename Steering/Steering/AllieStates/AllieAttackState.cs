@@ -4,11 +4,11 @@ using Steering.Camera_States;
 
 namespace Steering.AllyStates
 {
-    class AllyAttackState : State
+    class AllieAttackState : State
     {
         float _timeShot = 0.25f;
         public static bool Test;
-        public AllyAttackState(Entity entity)
+        public AllieAttackState(Entity entity)
             : base(entity)
         { }
 
@@ -49,7 +49,8 @@ namespace Steering.AllyStates
             var lazer = new AllieLazer();
             lazer.pos = Entity.pos;
             _targetPos.Y += 80f;
-            lazer.look = Vector3.Normalize(_targetPos);       
+            lazer.look = Vector3.Normalize(_targetPos);
+            lazer.speed = 3.4f;
             var timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;
             _timeShot += timeDelta;
             if (_timeShot > 0.25f)
@@ -58,7 +59,7 @@ namespace Steering.AllyStates
                 _timeShot = 0.0f;
             }
 
-            if (!XNAGame.Instance().followNormandy)
+            if (!XNAGame.Instance().followNormandyOnly)
             {
                 if (_targetPos.Length() > 500)
                 {
@@ -71,7 +72,7 @@ namespace Steering.AllyStates
                     {
                         if ((i.pos - Entity.pos).Length() < 100)
                         {
-                            fighter.SwicthState(new HitState(fighter));
+                            fighter.SwicthState(new AllieHitState(fighter));
                             i.Alive = false;
                             XNAGame.Instance().Camera.SwicthState(new ShowAllieHit(fighter.pos));
                         }

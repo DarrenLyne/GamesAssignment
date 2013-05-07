@@ -5,7 +5,7 @@ namespace Steering.ReaperStates
     class ReaperIdleState : State
     {
 
-        public ReaperIdleState(Entity entity):base(entity)
+        public ReaperIdleState(Entity entity):base(entity)//While Waiting To Notice Allie ships
         {
         }
         public override void Enter()
@@ -21,7 +21,7 @@ namespace Steering.ReaperStates
             var leader = (AIFighter)XNAGame.Instance().Leader;
             float range = leader.pos.Length() - Entity.pos.Length();
 
-            if(range > -1100)//1100 too late,1140too early
+            if(range > -1100)//checks that leader(Normandy) is getting closer to a point
             {
                 var fighter = (AIFighter)Entity;
                 fighter.SwicthState(new ReaperPreperationState(fighter));

@@ -348,22 +348,22 @@ namespace Steering
                 if (i == 2)  
                 {
                     models[i].pos = new Vector3(120, positons.Y, positons.Z);
-                    models[i].SwicthState(new AllyStates.AllyIdleState(models[i]));
+                    models[i].SwicthState(new AllyStates.AllieIdleState(models[i]));
                 }
                 if (i == 3)
                 {
                     models[i].pos = new Vector3(20, positons.Y, positons.Z);
-                   models[i].SwicthState(new AllyStates.AllyIdleState(models[i]));
+                   models[i].SwicthState(new AllyStates.AllieIdleState(models[i]));
                 }
                 if (i == 4)
                 {
                     models[i].pos = new Vector3(-80, positons.Y, positons.Z);
-                   models[i].SwicthState(new AllyStates.AllyIdleState(models[i]));
+                   models[i].SwicthState(new AllyStates.AllieIdleState(models[i]));
                 }
                 if (i == 5)
                 {
                     models[i].pos = new Vector3(-180, positons.Y, positons.Z);
-                    models[i].SwicthState(new AllyStates.AllyIdleState(models[i]));
+                    models[i].SwicthState(new AllyStates.AllieIdleState(models[i]));
                 }
                 if (i == 6)
                 {
@@ -404,11 +404,6 @@ namespace Steering
                 }
                 children.Add(models2[i]);
             }
-     
-            //foreach (Entity child in children)
-           // {
-           //     child.pos.Y += 100;
-           // }
 
             Video2 v = new Video2();
             XNAGame.Instance().Children.Add(v);
