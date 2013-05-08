@@ -14,6 +14,7 @@ namespace Steering.AllyStates
             var fighter = (AIFighter)Entity;
             fighter.SteeringBehaviours.turnOffAll();
             fighter.targetPos = new Vector3(-50, -400, -4000);
+            fighter.maxSpeed = 200;
             fighter.SteeringBehaviours.turnOn(SteeringBehaviours.behaviour_type.arrive);
             fighter.SteeringBehaviours.turnOn(SteeringBehaviours.behaviour_type.EnforceNonPenetrationConstraint);
         }

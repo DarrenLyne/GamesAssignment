@@ -52,7 +52,7 @@ namespace Steering.ReaperStates
                 lazer.pos = Entity.pos;
                 lazer.pos.Y += 40;
                 lazer.look = Vector3.Normalize(targetPos);
-                lazer.speed = 4.0f;
+                lazer.speed = 4.2f;
                 XNAGame.Instance().Children.Add(lazer);
                 timeShot = 0.0f;
             }

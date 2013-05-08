@@ -50,7 +50,7 @@ namespace Steering.AllyStates
             lazer.pos = Entity.pos;
             _targetPos.Y += 80f;
             lazer.look = Vector3.Normalize(_targetPos);
-            lazer.speed = 3.4f;
+            lazer.speed = 3.1f;
             var timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;
             _timeShot += timeDelta;
             if (_timeShot > 0.25f)

@@ -43,11 +43,10 @@ namespace Steering.ReaperStates
 
                 p = new Particle();
                 p.pos = Entity.pos;
-                p.pos.Y += 180;
-                p.pos.Z -= 180;
+                p.pos.Y += 100;
                 p.StartPos = Entity.pos;
-                p.StartPos.Y += 180;
-                p.StartPos.Z -= -180;
+                p.StartPos.Y += 100;
+                p.StartPos.Z -= -5;
                 p.Color = new Vector3(204, 0, 0);
                 r = new Random();
                 p.velocity = new Vector3((float)r.NextDouble() - 0.5f, (float)r.NextDouble() - 0.5f, (float)r.NextDouble() - 0.5f);
